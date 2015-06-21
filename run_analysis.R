@@ -1,6 +1,11 @@
 # Coursera
-# Getting and Cleaning Data
+# Getting and Cleaning Data (getdata-015)
 # Course Project
+
+# This implements all the instructions in the project assignment. Some of the steps are
+# broken into a preperation phase and a finalization phase. The steps have been ordered
+# to make this script easier to follow. Each section of this documents which instruction
+# it addresses.
 
 library(dplyr)
 
@@ -61,11 +66,11 @@ colnames(AssignedTestMeasures)=featuresOnlyMeanStd$Name
 # ...each variable for each activity and each subject.
 
 AssignedTrainMeasures$ActivityCode=ytrain$V1
-AssignedTrainMeasures$StudentCode=strain$V1
+AssignedTrainMeasures$SubjectCode=strain$V1
 str(AssignedTrainMeasures) # 7352 obs. of  88 variables
 
 AssignedTestMeasures$ActivityCode=ytest$V1
-AssignedTestMeasures$StudentCode=stest$V1
+AssignedTestMeasures$SubjectCode=stest$V1
 str(AssignedTestMeasures) # 2947 obs. of  88 variables
 
 # For instruction 1:
@@ -79,7 +84,7 @@ str(AssignedMeasures) # 10299 obs. of  88 variables
 # From the data set in step 4, creates a second, independent tidy data set with the
 # average of each variable for each activity and each subject.
 
-AssignedMeasures = group_by(AssignedMeasures, ActivityCode,StudentCode)
+AssignedMeasures = group_by(AssignedMeasures, ActivityCode,SubjectCode)
 TidyData=summarise_each(AssignedMeasures,funs(mean),everything())
 
 # For insturction 3:
@@ -87,9 +92,9 @@ TidyData=summarise_each(AssignedMeasures,funs(mean),everything())
 
 TidyData=inner_join(TidyData,activities,by=c('ActivityCode'='Code'))
 str(TidyData) # 180 obs. of  89 variables
-TidyData[,1]=TidyData[89]
-TidyData$Name=NULL
-colnames(TidyData)[1]='Activity Name'
+TidyData[,1]=TidyData[89] # Put the activity names at the begginning of each row
+TidyData$Name=NULL # This column is no longer needed
+colnames(TidyData)[1]='Activity.Name' # This is a better column name
 str(TidyData) # 180 obs. of  88 variables
 
 # Prepare the upload file
