@@ -4,8 +4,15 @@
 ### Getting and Cleaning Data
 ### Course Project
 
-This is a tidy dataset derived from http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+This is a tidy data set derived from http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 along with the R code that produces the tidy data from the source.
+
+See run_analysis.R for all of the code needed to compute this tidy data from the
+source data.
+
+See CodeBook.md for documentation of the tidy data set.
+
+See TidyData.txt for the actual data as described in the codebook and computed by R
 
 License:
 ========
