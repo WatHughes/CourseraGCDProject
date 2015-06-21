@@ -8,11 +8,12 @@ This is a tidy data set derived from http://archive.ics.uci.edu/ml/datasets/Huma
 along with the R code that produces the tidy data from the source.
 
 See run_analysis.R for all of the code needed to compute this tidy data from the
-source data.
+source data. To run that script, first modify it to set the value of RawDataRootDir
+(on line 13) to the location where you unzipped the assignement data.
 
-See CodeBook.md for documentation of the tidy data set.
+See CodeBook.md for documentation of the resulting tidy data set.
 
-See TidyData.txt for the actual data as described in the codebook and computed by R
+See TidyData.txt for the actual data as described in the codebook and computed by R.
 
 License:
 ========
